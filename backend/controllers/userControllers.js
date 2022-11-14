@@ -49,6 +49,7 @@ const authUser = expressAsyncHandler(async(req,res) => {
             pic: user.pic,
             token:generateToken(user._id)
         })
+        
     }else{
         res.status(401)
         throw new Error("invalid email or password")
@@ -73,7 +74,6 @@ const allUsers = expressAsyncHandler(async (req, res) => {
     //we verify the current user using jwt
     //it'll return all user expect current logged in user
     
-
     res.send(users);
 });
 

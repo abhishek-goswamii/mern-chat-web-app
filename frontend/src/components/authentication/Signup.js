@@ -17,9 +17,9 @@ const Signup = () => {
         const toast = useToast()
 
     const postDetails = (pic)=>{
-        //https://api.cloudinary.com/v1_1/dovsnvkrs/image/upload
 
             setLoading(true)
+
             if(pic === undefined){
                 toast({
                     title: 'please select an image',
@@ -97,6 +97,7 @@ const Signup = () => {
         }
 
         try {
+            
             const config = {
                 header:{
                     "Content-type":"application/json"
@@ -115,12 +116,15 @@ const Signup = () => {
             })    
 
             localStorage.setItem("userInfo" , JSON.stringify(data))
-        
+            
             setLoading(false)
+
             history.push('/chats')
 
         } catch (error) {
             
+            setLoading(false)
+
             toast({
                 title: "error",
                 status: "warning",

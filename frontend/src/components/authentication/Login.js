@@ -9,14 +9,14 @@ const Login = () => {
     const [password, setPassword] = useState();
     const [show, setShow] = useState(false);
     const [Loading, setLoading] = useState(false);
-    const history = useNavigate()
+    const Navigate = useNavigate()
     const toast = useToast()
 
-    const postDetails = (pics) => {
+    // const postDetails = (pics) => {
 
         
 
-    }
+    // }
 
     const submitHandler = async() => {
 
@@ -45,6 +45,7 @@ const Login = () => {
             }
 
             const { data } = await axios.post("/api/user/login", { email,password }, config)
+            
 
             toast({
                 title: "login successfull",
@@ -52,14 +53,14 @@ const Login = () => {
                 duration: 3000,
                 isClosable: true,
                 position: "bottom"
-
             })
+
+
 
             localStorage.setItem("userInfo", JSON.stringify(data))
 
             setLoading(false)
-
-            history.push('/chats')
+            Navigate('/chats')
 
         } catch (error) {
 

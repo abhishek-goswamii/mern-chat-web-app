@@ -20,10 +20,11 @@ app.get('/',(req,res) => {
   res.send('working');
 })
 
+//register and login api's
 app.use('/api/user',userRoutes)
-app.use('/api/chat',chatRoutes)
 
-// app.use('/api/chat',chatRoutes)
+//chat pages api's
+app.use('/api/chat',chatRoutes)
 
 app.use(notFound)
 
